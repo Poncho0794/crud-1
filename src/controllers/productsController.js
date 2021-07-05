@@ -10,12 +10,13 @@ const controller = {
 	// Root - Show all products
 	index: (req, res) => {
 		res.render('products', {'products':products})
-
 	},
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		// Do the magic
+		const product = products.find(product => product.id === parseInt(req.params.id));
+		res.render('detail', {product});
 	},
 
 	// Create - Form to create
@@ -31,15 +32,21 @@ const controller = {
 	// Update - Form to edit
 	edit: (req, res) => {
 		// Do the magic
+		const product = products.find(product => product.id === parseInt(req.params.id));
+		res.render('detail', {product});
 	},
 	// Update - Method to update
 	update: (req, res) => {
 		// Do the magic
+		const product = products.find(product => product.id === parseInt(req.params.id));
+		res.render('detail', {product});
 	},
 
 	// Delete - Delete one product from DB
-	destroy : (req, res) => {
+	delete : (req, res) => {
 		// Do the magic
+		const product = products.find(product => product.id === parseInt(req.params.id));
+		res.render('detail', {product});
 	}
 };
 
