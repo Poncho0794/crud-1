@@ -45,8 +45,8 @@ const controller = {
 	// Update - Form to edit
 	edit: (req, res) => {
 		// Do the magic
-		const product = products.find(product => product.id === parseInt(req.params.id));
-		res.render('detail', {product});
+		const productToEdit = products.find(product => product.id === parseInt(req.params.id));
+		res.render('product-edit-form', {productToEdit});
 	},
 	// Update - Method to update
 	update: (req, res) => {
