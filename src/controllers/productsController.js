@@ -51,8 +51,13 @@ const controller = {
 	// Update - Method to update
 	update: (req, res) => {
 		// Do the magic
-		const product = products.find(product => product.id === parseInt(req.params.id));
-		res.render('detail', {product});
+		const productIndex = products.findIndex(product => product.id === parseInt(req.params.id));
+		products[productIndex] = {
+			...req.body
+		}
+		
+		fs.writeFileSync(productsFilePath,JSON.stringify(products));
+		res.render('detail', {product: products[productIndex]});
 	},
 
 	// Delete - Delete one product from DB
